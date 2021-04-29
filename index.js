@@ -1,29 +1,35 @@
 var express = require('express');
 var app = express();
 var cors = require('cors');
+const fetch  = require('node-fetch');
 
 
 app.use(cors());
 
 app.use(express.json());
 
-app.post('/del',(req,res) =>{
-    var name = req.body.name;
-    console.log(name);
-    fs.unlink(name, (err) => {
-        if (err){
-            console.log(err);
-            res.send("error in deletion");
-        } 
-            
-        console.log('deleted');
-        res.send("deleted");
-      });
+app.get('/rates', (req, res) => {
+    fetch('https://api.openrates.io/latest')
+    .then(res => res.json())
+    .then(json => res.send(json))
+
+    .catch((err)=> res.send(err));
+ 
 })
 
-app.post('/', (req, res) => {
-  
+app.post('/base', (req, res) => {
+    var fromcur = req.body.fromCurrency;
+    var tocur = req.body.toCurrency;
+    console.log(fromcur,tocur);
+    fetch(`https://api.openrates.io/latest?base=${
+        fromcur}`)
+    .then(res => res.json())
+    .then(json => res.send(json))
+    
+    .catch((err)=> res.send(err));
+ 
 })
+
 
 
 var PORT = process.env.PORT || 4200;

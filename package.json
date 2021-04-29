@@ -1,17 +1,17 @@
 {
-    "name": "server",
-    "version": "1.0.0",
-    "description": "fetch data for currency calculator",
-    "main": "server.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index.js"
-    },
-    "author": "prem",
-    "license": "ISC",
-    "dependencies": {
-      "cors": "^2.8.5",
-      "express": "^4.16.3"
-    }
+  "name": "server",
+  "version": "1.0.0",
+  "description": "fetch data for currency calculator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "prem",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "node-fetch": "^2.6.1"
   }
-  
+}
